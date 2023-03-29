@@ -12,14 +12,14 @@ function Functions.PlayerClosestToMouse()
 end
 -- Get Player Closest To Character
 function Functions.PlayerClosestToCharacter(MaxDistance)
-	local Closest; local Magnitude; local Distance = MaxDistance
+	local CloestPlayer; local Closest; local Magnitude; local Distance = MaxDistance
 	for _, Player in Players:GetPlayers() do if Player == LocalPlayer then continue end
 		if Player.Character and Player.Character:FindFirstChild("HumanoidRootPart") then
 			Magnitude = (HRP.Position - Player.Character:FindFirstChild("HumanoidRootPart").Position).Magnitude
-			if Distance > Magnitude then Distance = Magnitude; Closest = Player.Character end
+			if Distance > Magnitude then Distance = Magnitude; Closest = Player.Character; ClosestPlayer = Player end
 		end
 	end
-	return Closest
+	return Closest, ClosestPlayer
 end
 -- Return
 return Functions
