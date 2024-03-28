@@ -25,7 +25,7 @@ function Loop.new(...)
 	}
 end
 
-Loop.Connection = get("RunService").RenderStepped:Connect(function()
+Loop.Connection = game:GetService("RunService").RenderStepped:Connect(function()
 	for _, loop in Loop.Cache do
 		if loop.Enabled then
 			loop.Function()
